@@ -1,0 +1,16 @@
+<h1>Reader</h1>
+<div id="word-viewer-start" class="viewer-container">
+  Click 'Read' to start
+</div>
+<div class="viewer-container" id="word-viewer" ng-hide="{{active}}">{{wordLeft}}<span class="word-focus">{{wordFocus}}</span>{{wordRight}}</div>
+<textarea ng-model="sourceText"></textarea>
+<button class="btn" ng-click="read()">Read</button>
+<button class="btn" ng-click="stop()">Stop</button>
+<select ng-model="readRate">
+  <option>700</option>
+  <option>600</option>
+  <option>500</option>
+  <option>400</option>
+  <option>300</option>
+</select>
+

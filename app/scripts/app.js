@@ -10,6 +10,10 @@ angular.module('talariaApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/read', {
+        templateUrl: 'views/parser/index.html',
+        controller: 'ParserCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
