@@ -1,8 +1,10 @@
 <h1>Reader</h1>
-<div id="word-viewer-start" class="viewer-container">
+<div id="word-reader-start" class="reader-container">
   Click 'Read' to start
 </div>
-<div class="viewer-container" id="word-viewer" ng-hide="{{active}}">{{wordLeft}}<span class="word-focus">{{wordFocus}}</span>{{wordRight}}</div>
+<div class="reader-container" ng-hide="{{active}}">
+  <div id="word-reader"><span id="word-left">{{wordLeft}}</span><span id="word-focus">{{wordFocus}}</span>{{wordRight}}</div>
+</div>
 <textarea ng-model="sourceText"></textarea>
 <button class="btn" ng-click="read()">Read</button>
 <button class="btn" ng-click="stop()">Stop</button>

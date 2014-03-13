@@ -8,6 +8,9 @@ angular.module('talariaApp')
     $scope.readRate = 500;
     $scope.active = false;
 
+    var reader = document.getElementById('word-reader');
+    var readerWidth = reader.offsetWidth;
+
     var focusMapping = function(length) {
       switch(length) {
         case 1:
@@ -27,7 +30,17 @@ angular.module('talariaApp')
         case 12:
         case 13:
           return 3;
-      }
+      } // average percentage: 0.2893374741
+    };
+
+    $scope.positionWord = function() {
+      var wordFocus = document.getElementById('word-focus');
+      var focusWidth = wordFocus.offsetWidth;
+      var wordLeft = document.getElementById('word-left');
+      var leftWidth = wordLeft.offsetWidth;
+      var newMargin = 116 - focusWidth / 2 - leftWidth;
+      console.log('Setting margin to ' + newMargin, focusWidth, $scope.wordFocus, leftWidth, $scope.wordLeft, readerWidth);
+      wordLeft.style.marginLeft = newMargin + 'px';
     };
 
     $scope.updateReader = function() {
@@ -35,6 +48,7 @@ angular.module('talariaApp')
       if ($scope.wordIndex < $scope.words.length && $scope.active) {
         var newWord = $scope.words[$scope.wordIndex];
         $scope.partitionWord(newWord);
+        $scope.positionWord();
         $timeout($scope.updateReader, 1 / $scope.readRate * 60 * 1000);
       }
     };
@@ -48,6 +62,9 @@ angular.module('talariaApp')
     };
 
     $scope.read = function() {
+      if ($scope.active) {
+        return;
+      }
       $scope.words = $scope.sourceText.split(' ');
       $scope.wordIndex = 0;
       var word = $scope.words[$scope.wordIndex];

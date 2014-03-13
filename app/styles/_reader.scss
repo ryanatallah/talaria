@@ -1,4 +1,4 @@
-.viewer-container {
+.reader-container {
   border: 1px solid #ddd;
   padding: 20px;
   font-size: 1.2em;
@@ -7,8 +7,18 @@
   text-align: center;
 }
 
-.word-focus {
-  color: red;
-  padding: 0;
+#word-reader {
+  margin: 0 auto;
+  width: 400px;
+  text-align: left;
 }
 
+#word-focus {
+  color: red;
+  padding: 0;
+  display: inline-block;
+}
+
+#word-left {
+  display: inline-block;
+}
